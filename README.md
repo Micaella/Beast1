@@ -24,7 +24,7 @@ HTSeq is a native Python library that folows conventions of many Python packages
 HTSeq uses [NumPy](https://numpy.org/), [Pysam](https://github.com/pysam-developers/pysam) and [matplotlib](https://matplotlib.org/). Be sure this tools are installed.
 
 - [R](https://www.r-project.org/)
-/mm
+
 To use [DESEq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html) script make sure R language is also installed. You can install it by running:
 
 
@@ -32,7 +32,7 @@ To use [DESEq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html)
 
 - [Parsl - Parallel Scripting Library](https://parsl.readthedocs.io/en/stable/index.html)
 
-The recommended way to install Parsl is the suggest approach from Parsl's documantion:
+The recommended way to install Parsl is the suggest approach from Parsl's documentation:
 
 
 > python3 -m pip install parsl
@@ -54,8 +54,8 @@ First of all, make a Comma Separated Values (CSV) file. So, onto the first line 
    | tissue wntup 2   | SRR5445798.fastq | wntup   |
    | tissue wntup 3   | SRR5445799.fastq | wntup   |
 
-The list of command line arguments passed to Python script, beyond the script's name, must be: the indexed genome, read fastaq file, directory's name where the output files must be placed,  GTF file and lastly the DESeq script. Make sure all the files necessary to run the workflow are in the same directory and the fastaq files in a dedicated folder, as a input directory. The command line will be like this:
+The list of command line arguments passed to Python script, beyond the script's name, must be: the indexed genome, the threads' number for bowtie task, read fastaq file, directory's name where the output files must be placed,  GTF file and lastly the DESeq script. Make sure all the files necessary to run the workflow are in the same directory and the fastaq files in a dedicated folder, as a input directory. The command line will be like this:
 
-> python3 rna-seq.py ../mm9/mm9 ../inputs/SRR ../outputs ../Mus_musculus.NCBIM37.67.gtf ../DESeq.R
+> python3 rna-seq.py ../mm9/mm9 6 ../inputs/SRR ../outputs ../Mus_musculus.NCBIM37.67.gtf ../DESeq.R
 
 On this first version the workflow search, on the input files' directory, for a pattern on the prefix in the files' name. So, for running this workflow you need pass this pattern. In the table, as you can see, the pattern is ``"SRR"``.
